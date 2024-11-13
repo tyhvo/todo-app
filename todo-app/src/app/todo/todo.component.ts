@@ -1,12 +1,40 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
+
+interface Task {
+  name: string;
+  completed: boolean;
+}
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
-  imports: [],
   templateUrl: './todo.component.html',
-  styleUrl: './todo.component.scss'
+  imports: [CommonModule, FormsModule],
+  standalone: true,
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent {
+  newTask: string = '';
+  tasks: Task[] = [];
+  filteredTasks: Task[] = [];
 
+  addTask() {
+    if (this.newTask.trim()) {
+      this.tasks.push({ name: this.newTask, completed: false });
+      this.newTask = '';
+      this.filterTasks('all');
+    }
+  }
+
+  filterTasks(filter: string) {
+    if (filter === 'completed') {
+      this.filteredTasks = this.tasks.filter(task => task.completed);
+    } else if (filter === 'pending') {
+      this.filteredTasks = this.tasks.filter(task => !task.completed);
+    } else {
+      this.filteredTasks = this.tasks;
+    }
+  }
 }
