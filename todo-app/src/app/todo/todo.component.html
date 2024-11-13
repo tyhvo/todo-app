@@ -100,17 +100,21 @@ This challenge is completely free. Please share it with anyone who will find it 
  -->
  <div class="todo-app">
   <h1>Todo</h1>
-  <input type="text" [(ngModel)]="newTask" placeholder="Create a new todo..." />
-  <button (click)="addTask()">Add Task</button>
+  <div class="new-todo">
+    <input type="text" [(ngModel)]="newTask" placeholder="Create a new todo..." class="new-input" (keydown)="onKey($event)"/>
+  </div>
 
-  <ul>
-    <li *ngFor="let task of filteredTasks">
-      <input type="checkbox" [(ngModel)]="task.completed" />
-      <span [class.completed]="task.completed">{{ task.name }}</span>
-    </li>
-  </ul>
+  <div class="todo-list">
+    <ul>
+      <li *ngFor="let task of filteredTasks">
+        <input type="checkbox" [(ngModel)]="task.completed" />
+        <span [class.completed]="task.completed">{{ task.name }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+      </li>
+    </ul>
+  </div>
 
-  <div class="filters"></div>
+  <div class="filters">
     <button (click)="filterTasks('all')">All</button>
     <button (click)="filterTasks('completed')">Completed</button>
     <button (click)="filterTasks('active')">Active</button>

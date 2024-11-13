@@ -28,6 +28,12 @@ export class TodoComponent {
     }
   }
 
+  onKey(event: KeyboardEvent) {
+    if(event.key === 'Enter') {
+      this.addTask();
+    }
+  }
+
   filterTasks(filter: string) {
     if (filter === 'completed') {
       this.filteredTasks = this.tasks.filter(task => task.completed);
