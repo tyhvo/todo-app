@@ -99,14 +99,14 @@ This challenge is completely free. Please share it with anyone who will find it 
 **Have fun building!** 🚀
  -->
  <div class="todo-app">
-  <h1>Todo List</h1>
-  <input type="text" [(ngModel)]="newTask" placeholder="Enter a new task" />
+  <h1>Todo</h1>
+  <input type="text" [(ngModel)]="newTask" placeholder="Create a new todo..." />
   <button (click)="addTask()">Add Task</button>
 
   <div class="filters">
     <button (click)="filterTasks('all')">All</button>
     <button (click)="filterTasks('completed')">Completed</button>
-    <button (click)="filterTasks('pending')">Pending</button>
+    <button (click)="filterTasks('active')">Active</button>
   </div>
 
   <ul>

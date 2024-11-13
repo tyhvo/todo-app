@@ -31,7 +31,7 @@ export class TodoComponent {
   filterTasks(filter: string) {
     if (filter === 'completed') {
       this.filteredTasks = this.tasks.filter(task => task.completed);
-    } else if (filter === 'pending') {
+    } else if (filter === 'active') {
       this.filteredTasks = this.tasks.filter(task => !task.completed);
     } else {
       this.filteredTasks = this.tasks;
