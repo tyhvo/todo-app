@@ -43,4 +43,18 @@ export class TodoComponent {
       this.filteredTasks = this.tasks;
     }
   }
+
+  
+// counts tasks left
+get remainingTasksCount(): number {
+  return this.tasks.filter(task => !task.completed).length;
+}
+
+// remove task
+removeTask(taskToRemove: Task) {
+  this.tasks = this.tasks.filter(task => task !== taskToRemove);
+  this.filterTasks('all'); // Update filtered tasks after removal
+}
+
+  // toggle dark/light mode
 }
