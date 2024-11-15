@@ -1,16 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oxygen:wght@300;400;700&display=swap');
+
+:host {
+  min-height: 100vh;
+  display: block;
+  background: url('/assets/images/bg-desktop-dark.jpg') no-repeat top center;
+  background-size: 100% 300px;
+  background-color: #161722;
+}
+
 .todo-app {
-  background-color: black;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Josefin Sans';
 
   h1 {
     color: white;
+    font-size: 2.5rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
   }
 
   .new-todo {
-    width: 100%;
+    margin-bottom: 24px;
+
+    .new-input {
+      width: 100%;
+      padding: 18px;
+      border-radius: 5px;
+      border: none;
+      background: #25273c;
+      color: #cacde8;
+      font-size: 1rem;
+      font-family: 'Josefin Sans';
+
+      &::placeholder {
+        color: #767992;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
   .todo-list {
-    border: 2px solid white;
+    background: #25273c;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5);
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 18px;
+        border-bottom: 1px solid #393a4c;
+        color: #cacde8;
+
+        input[type="checkbox"] {
+          margin-right: 12px;
+          cursor: pointer;
+        }
+
+        .completed {
+          text-decoration: line-through;
+          color: #4d5066;
+        }
+
+        svg {
+          margin-left: auto;
+          cursor: pointer;
+          opacity: 0; //hidden until hovered over
+          transition: opacity 0.2s;
+        }
+
+        &:hover svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .task-count {
+    background: #25273c;
+    padding: 15px 20px;
+    color: #5b5e7e;
+    font-size: 0.9rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .filters {
+    background: #25273c;
+    margin-top: 16px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      background: none;
+      border: none;
+      color: #5b5e7e;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+
+      &:hover {
+        color: #e4e5f1;
+      }
+
+      &:active {
+        color: #3a7bfd;
+      }
+
+      &:focus {
+        color: #3a7bfd;
+      }
+    }
   }
 }
-
