@@ -1,11 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Oxygen:wght@300;400;700&display=swap');
 
-:host {
-  min-height: 100vh;
-  display: block;
+// :host {
+//   min-height: 100vh;
+//   display: block;
+//   background: url('/assets/images/bg-desktop-dark.jpg') no-repeat top center;
+//   background-size: 100% 300px;
+//   background-color: #161722;
+// }
+
+.dark-class {
   background: url('/assets/images/bg-desktop-dark.jpg') no-repeat top center;
+  display: block;
   background-size: 100% 300px;
   background-color: #161722;
+  h1 {
+    color: #ffffff; // Change to white for dark mode
+  }
+}
+
+.light-class {
+  background: url('/assets/images/bg-desktop-light.jpg') no-repeat top center;
+  display: block;
+  background-size: 100% 300px;
+  background-color: #ffffff;
+
+  h1 {
+    color: #161722;
+    font-size: 2.5rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
 }
 
 .todo-app {
@@ -13,14 +38,6 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Josefin Sans';
-
-  h1 {
-    color: white;
-    font-size: 2.5rem;
-    letter-spacing: 12px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-  }
 
   .new-todo {
     margin-bottom: 24px;

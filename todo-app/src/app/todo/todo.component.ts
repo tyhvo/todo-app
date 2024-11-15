@@ -19,6 +19,7 @@ export class TodoComponent {
   newTask: string = '';
   tasks: Task[] = [];
   filteredTasks: Task[] = [];
+  isDark: boolean = false;
 
   addTask() {
     if (this.newTask.trim()) {
@@ -56,5 +57,14 @@ removeTask(taskToRemove: Task) {
   this.filterTasks('all'); // Update filtered tasks after removal
 }
 
+// clear all tasks
+clearAllTasks() {
+  this.tasks = [];
+  this.filterTasks('all'); // Update filtered tasks after clearing
+}
+
   // toggle dark/light mode
+toggleMode() {
+  this.isDark = !this.isDark; // Toggle the dark mode state
+}
 }
